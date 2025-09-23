@@ -43,7 +43,6 @@ public class ResourceServerConfig {
 	@Bean
 	@Order(3)
 	public SecurityFilterChain rsSecurityFilterChain(HttpSecurity http) throws Exception {
-
 		http.csrf(csrf -> csrf.disable());
 		http.authorizeHttpRequests(authorize -> authorize.anyRequest().permitAll());
 		http.oauth2ResourceServer(oauth2ResourceServer -> oauth2ResourceServer.jwt(Customizer.withDefaults()));
@@ -78,13 +77,6 @@ public class ResourceServerConfig {
 		return source;
 	}
 
-//	@Bean
-//	FilterRegistrationBean<CorsFilter> corsFilter() {
-//		FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<>(
-//				new CorsFilter(corsConfigurationSource()));
-//		bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
-//		return bean;
-//	}
 	@Bean
 	FilterRegistrationBean<CorsFilter> filterRegistrationBeanCorsFilter() {
 		FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<>(
