@@ -24,13 +24,13 @@ public class ProductDTO {
     
     @Positive(message = "O preço deve ser positivo")
     private Double price;
-    
     private String imgUrl;
-    
-    public ProductDTO() {
-    }
+
     @NotEmpty(message = "Deve ter pelo menos uma categoria")
     private List<CategoryDTO> categories = new ArrayList<>();
+
+    public ProductDTO() {
+    }
 
     public ProductDTO(Long id, String name, String description, Double price, String imgUrl) {
         this.id = id;

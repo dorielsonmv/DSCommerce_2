@@ -1,26 +1,31 @@
 package com.devsuperior.dscommerce.dto;
 
 import com.devsuperior.dscommerce.entities.OrderItem;
-import jakarta.persistence.criteria.CriteriaBuilder;
 
 public class OrderItemDTO {
     private Long ProductID;
     private String name;
     private Double price;
     private Integer quantity;
+    private String imgUrl;
 
-    public OrderItemDTO(Long productID, String name, Double price, Integer quantity) {
+    public OrderItemDTO() {
+    }
+
+    public OrderItemDTO(Long productID, String name, Double price, Integer quantity,String imgUrl) {
         ProductID = productID;
         this.name = name;
         this.price = price;
         this.quantity = quantity;
+        this.imgUrl = imgUrl;
     }
 
-    public OrderItemDTO(OrderItem intity) {
-        ProductID = intity.getProduct().getId();
-        name = intity.getProduct().getName();
-        price = intity.getPrice();
-        quantity = intity.getQuantity();
+    public OrderItemDTO(OrderItem entity) {
+        ProductID = entity.getProduct().getId();
+        name = entity.getProduct().getName();
+        price = entity.getPrice();
+        quantity = entity.getQuantity();
+        imgUrl = entity.getProduct().getImgUrl();
     }
 
     public Long getProductID() {
@@ -42,4 +47,7 @@ public class OrderItemDTO {
         return price*quantity;
     }
 
+    public String getImgUrl() {
+        return imgUrl;
+    }
 }
