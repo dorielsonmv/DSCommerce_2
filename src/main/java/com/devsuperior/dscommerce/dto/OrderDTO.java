@@ -12,7 +12,7 @@ import java.util.List;
 
 public class OrderDTO {
 
-    private  Long id;
+    private Long id;
     private Instant moment;
     private OrderStatus status;
 
@@ -47,28 +47,22 @@ public class OrderDTO {
     }
 
     public Long getId() {
-        return id;
-    }
+        return id;    }
 
     public Instant getMoment() {
-        return moment;
-    }
+        return moment;    }
 
     public OrderStatus getStatus() {
-        return status;
-    }
+        return status;    }
 
     public ClientDTO getClient() {
-        return client;
-    }
+        return client;    }
 
     public PaymentDTO getPayment() {
-        return payment;
-    }
+        return payment;    }
 
     public List<OrderItemDTO> getItems() {
-        return items;
-    }
+        return items;    }
 
     public double getTotal(){
         double sum = 0.0;
