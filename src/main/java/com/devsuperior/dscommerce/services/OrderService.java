@@ -2,13 +2,11 @@ package com.devsuperior.dscommerce.services;
 
 import com.devsuperior.dscommerce.dto.OrderDTO;
 import com.devsuperior.dscommerce.dto.OrderItemDTO;
-import com.devsuperior.dscommerce.dto.ProductDTO;
 import com.devsuperior.dscommerce.entities.*;
 import com.devsuperior.dscommerce.repositories.OrderItemRepository;
 import com.devsuperior.dscommerce.repositories.OrderRepository;
 import com.devsuperior.dscommerce.repositories.ProductRepository;
 import com.devsuperior.dscommerce.services.exceptions.ResourceNotFoundException;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -53,7 +51,7 @@ public class OrderService {
         order.setClient(user);
 
         for (OrderItemDTO itemDTO : dto.getItems()){
-            Product product = productRepository.getReferenceById(itemDTO.getProductID());
+            Product product = productRepository.getReferenceById(itemDTO.getProductId());
             OrderItem item = new OrderItem(order,product, itemDTO.getQuantity(), product.getPrice());
             order.getItems().add(item);
         }
