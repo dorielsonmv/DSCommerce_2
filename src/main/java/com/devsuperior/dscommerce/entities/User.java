@@ -84,6 +84,15 @@ public class User implements UserDetails {
         this.birthDate = birthDate;
     }
 
+    public boolean hasRole(String roleName){
+        for (Role role : roles){
+            if (role.getAuthority().equals(roleName)){
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return roles;
@@ -138,14 +147,7 @@ public class User implements UserDetails {
         roles.add(role);
     }
 
-    public boolean hasRole(String roleName) {
-        for (Role role : roles) {
-            if (role.getAuthority().equals(roleName)) {
-                return true;
-            }
-        }
-        return false;
-    }
+
 
     @Override
     public boolean equals(Object o) {
